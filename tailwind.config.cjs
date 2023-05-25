@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        custom: ['Space Grotesk', 'ui-sans-serif', 'sans-serif'],
+        custom: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
       },
       colors: {
         custom: '#cd13cd',
