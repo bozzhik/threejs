@@ -1,42 +1,37 @@
 import './index.css'
-
 import * as THREE from 'three'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import Threeasy from 'threeasy'
 
 const app = new Threeasy(THREE, {alpha: true})
-
-var loader = new GLTFLoader()
-let modelUrl = './model/scene.gltf'
+const loader = new GLTFLoader()
+const modelUrl = './model/scene.gltf'
+let gltf
+const scale = 0.15
+const rotation = {x: 1, y: 0.4, z: 0}
 
 loader.load(
   modelUrl,
-  function (gltf) {
-    console.log(gltf.scene)
-    gltf.scene.scale.x = 0.15
-    gltf.scene.scale.y = 0.15
-    gltf.scene.scale.z = 0.15
-
-    gltf.scene.rotation.x = 1
-    gltf.scene.rotation.y = 0.4
-    gltf.scene.rotation.z = 0
-
+  function (loadedGltf) {
+    gltf = loadedGltf
+    gltf.scene.scale.set(scale, scale, scale)
+    gltf.scene.rotation.set(rotation.x, rotation.y, rotation.z)
     app.scene.add(gltf.scene)
-
-    window.addEventListener('scroll', onScroll)
-
-    function onScroll() {
-      const scrollY = window.scrollY
-      const rotationSpeed = 0.002
-      gltf.scene.rotation.x = scrollY * rotationSpeed
-      gltf.scene.rotation.y = scrollY * rotationSpeed
-    }
   },
   undefined,
   function (e) {
     console.error(e)
   },
 )
+
+function onScroll() {
+  const scrollY = window.scrollY
+  const rotationSpeed = 0.0015
+  gltf.scene.rotation.x = scrollY * rotationSpeed
+  gltf.scene.rotation.y = scrollY * rotationSpeed
+}
+
+window.addEventListener('scroll', onScroll)
 
 const light = new THREE.AmbientLight(0xffffff)
 light.intensity = 3
