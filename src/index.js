@@ -7,7 +7,7 @@ import Threeasy from 'threeasy'
 const app = new Threeasy(THREE, {alpha: true})
 
 var loader = new GLTFLoader()
-let modelUrl = './src/model/scene.gltf'
+let modelUrl = './model/scene.gltf'
 
 loader.load(
   modelUrl,
