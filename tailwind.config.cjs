@@ -5,10 +5,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        custom: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
+        custom: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
       },
       colors: {
-        custom: '#cd13cd',
+        custom: {
+          100: '#161616',
+          200: '#373737',
+          300: '#643002',
+        },
         grey: {
           100: '#f0f0f0',
           200: '#e4e4e4',
@@ -21,15 +25,12 @@ module.exports = {
           900: '#4e4e4e',
         },
       },
-      dropShadow: {
-        custom: '0 4px 4px 0091ff40',
-      },
     },
     screens: {
-      sm: {min: '300px', max: '767px'},
-      md: {min: '768px'},
-      lg: {min: '1024px'},
-      xl: {min: '1280px'},
+      xl: {max: '1535px'},
+      lg: {max: '1023px'},
+      sm: {max: '768px'},
+      xs: {max: '350px'},
     },
     debugScreens: {
       position: ['top', 'right'],
