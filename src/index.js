@@ -7,7 +7,8 @@ const app = new Threeasy(THREE, {alpha: true})
 const loader = new GLTFLoader()
 const modelUrl = './model/scene.gltf'
 let gltf
-const scale = 0.15
+const scale = window.innerWidth <= 768 ? 0.08 : 0.15
+
 // const rotation = {x: 1, y: 0.4, z: 0}
 
 const loaderElement = document.getElementById('LOADER')
@@ -34,6 +35,20 @@ function onScroll() {
   const rotationSpeed = 0.002
   gltf.scene.rotation.x = scrollY * rotationSpeed
   gltf.scene.rotation.y = scrollY * rotationSpeed
+
+  // // hide on scroll
+  // const titleElement = document.querySelector('.text-6xl')
+  // const titleHeight = titleElement.offsetHeight
+
+  // if (scrollY >= titleHeight) {
+  //   app.renderer.domElement.style.zIndex = '-50'
+  //   app.renderer.domElement.style.opacity = '0.5'
+  //   app.renderer.domElement.style.filter = 'blur(4px)'
+  // } else {
+  //   app.renderer.domElement.style.zIndex = '1'
+  //   app.renderer.domElement.style.opacity = '1'
+  //   app.renderer.domElement.style.filter = 'blur(0px)'
+  // }
 }
 
 window.addEventListener('scroll', onScroll)
