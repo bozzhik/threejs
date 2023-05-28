@@ -36,9 +36,9 @@ function onScroll() {
   gltf.scene.rotation.x = scrollY * rotationSpeed
   gltf.scene.rotation.y = scrollY * rotationSpeed
 
-  // // hide on scroll
+  // //? hide on scroll
   // const titleElement = document.querySelector('.text-6xl')
-  // const titleHeight = titleElement.offsetHeight
+  // const titleHeight = titleElement.offsetHeight + 150
 
   // if (scrollY >= titleHeight) {
   //   app.renderer.domElement.style.zIndex = '-50'
