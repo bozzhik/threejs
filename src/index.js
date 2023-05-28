@@ -10,6 +10,8 @@ let gltf
 const scale = 0.15
 const rotation = {x: 1, y: 0.4, z: 0}
 
+const loaderElement = document.getElementById('LOADER')
+
 loader.load(
   modelUrl,
   function (loadedGltf) {
@@ -17,16 +19,19 @@ loader.load(
     gltf.scene.scale.set(scale, scale, scale)
     gltf.scene.rotation.set(rotation.x, rotation.y, rotation.z)
     app.scene.add(gltf.scene)
+
+    loaderElement.style.display = 'none'
   },
   undefined,
   function (e) {
     console.error(e)
+    loaderElement.style.display = 'none'
   },
 )
 
 function onScroll() {
   const scrollY = window.scrollY
-  const rotationSpeed = 0.0015
+  const rotationSpeed = 0.002
   gltf.scene.rotation.x = scrollY * rotationSpeed
   gltf.scene.rotation.y = scrollY * rotationSpeed
 }
