@@ -8,7 +8,7 @@ const loader = new GLTFLoader()
 const modelUrl = './model/scene.gltf'
 let gltf
 const scale = 0.15
-const rotation = {x: 1, y: 0.4, z: 0}
+// const rotation = {x: 1, y: 0.4, z: 0}
 
 const loaderElement = document.getElementById('LOADER')
 
@@ -17,7 +17,7 @@ loader.load(
   function (loadedGltf) {
     gltf = loadedGltf
     gltf.scene.scale.set(scale, scale, scale)
-    gltf.scene.rotation.set(rotation.x, rotation.y, rotation.z)
+    // gltf.scene.rotation.set(rotation.x, rotation.y, rotation.z)
     app.scene.add(gltf.scene)
 
     loaderElement.style.display = 'none'
