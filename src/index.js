@@ -3,6 +3,8 @@ import * as THREE from 'three'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import Threeasy from 'threeasy'
 
+import {pageHydration} from './hydration'
+
 const app = new Threeasy(THREE, {alpha: true})
 const loader = new GLTFLoader()
 const modelUrl = './model/scene.gltf'
@@ -22,6 +24,8 @@ loader.load(
     app.scene.add(gltf.scene)
 
     loaderElement.style.display = 'none'
+
+    pageHydration()
   },
   undefined,
   function (e) {
