@@ -8,3 +8,7 @@ canvas {
   position: fixed;
   top: 0;
 }
+
+#SVG_LOADER {
+  enable-background: new 0 0 50 50;
+}
