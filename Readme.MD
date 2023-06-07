@@ -13,7 +13,7 @@ git clone https://github.com/bozzhik/threejs.git
 2. Install dependencies
 
 ```bash
-npm install
+npm i
 ```
 
 3. Run server
